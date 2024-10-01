@@ -124,6 +124,8 @@ thick_file2 = "./thick/P_thick_run2.dat"
 thick_run2_energy, thick_run2_counts = read_alphas(thick_file2, True)
 thick_file3 = "./thick/P_thick_run3.dat"
 thick_run3_energy, thick_run3_counts = read_alphas(thick_file3, True)
+thick_file4 = "./thick/P_thick_run4.dat"
+thick_run4_energy, thick_run4_counts = read_alphas(thick_file4, True)
 thick_file5 = "./thick/P_thick_run5.dat"
 thick_run5_energy, thick_run5_counts = read_alphas(thick_file5, True)
 
@@ -165,4 +167,33 @@ plt.ylabel(r"Alpha Emissivity (nBq/cm$^2$)")
 plt.xticks([5.,6.,7.,8.,9.])
 #plt.yscale("log")
 plt.legend()
+plt.show()
+
+day = [1., 2., 3., 4., 5.]
+thin_runs=[sum(thin_run1_counts),
+           sum(thin_run2_counts),
+           sum(thin_run3_counts),
+           sum(thin_run4_counts),
+           sum(thin_run5_counts),
+           ]
+
+med_runs=[sum(med_run1_counts),
+           sum(med_run2_counts),
+           sum(med_run3_counts),
+           sum(med_run4_counts),
+           sum(med_run5_counts),
+           ]
+
+thick_runs = [sum(thick_run1_counts),
+              sum(thick_run2_counts),
+              sum(thick_run3_counts),
+              sum(thick_run4_counts),
+              sum(thick_run5_counts),
+              ]
+
+plt.xlabel("Day")
+plt.ylabel("Detected Alphas")
+plt.scatter(day, thin_runs)
+plt.scatter(day, med_runs)
+plt.scatter(day, thick_runs)
 plt.show()
