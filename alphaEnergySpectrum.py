@@ -153,8 +153,9 @@ plt.yscale("log")
 plt.legend()
 plt.show()
 
+alpha_prob = []
+for i in range(len(thick_alpha_emissivity)):
+    alpha_prob.append(thick_alpha_emissivity[i]/sum(thick_alpha_emissivity))
 
-
-print([i * 1000000000 for i in thick_alpha_emissivity])
-print([i * 1000000000 for i in med_alpha_emissivity])
-print([i * 1000000000 for i in thin_alpha_emissivity])
+for i in range(len(thick_alpha_emissivity)):
+    print(f"{float(i+5.5)}  {alpha_prob[i]*100}")
